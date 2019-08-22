@@ -3,16 +3,16 @@ import * as line from '@line/bot-sdk';
 import bot from '../../../services/bot';
 
 describe('create() is command for create bot client with init config.', () => {
-  it('should be return bot instance depend on config.', () => {
-    const config = {
-      TS_SUPPORT: {
-        channelAccessToken: 'hQXum+1h5'
-      },
-      TS_OA: {
-        channelAccessToken: '3+k5qhGCh'
-      }
-    };
+  const config = {
+    TS_SUPPORT: {
+      channelAccessToken: 'hQXum+1h5'
+    },
+    TS_OA: {
+      channelAccessToken: '3+k5qhGCh'
+    }
+  };
 
+  it('should be return bot instance depend on config.', () => {
     const createBot = bot.create({
       service: line,
       channel: 'TS_OA',
