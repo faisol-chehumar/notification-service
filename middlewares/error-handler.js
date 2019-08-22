@@ -1,23 +1,15 @@
-import sentryConfig from '../configs/sentry.config.json';
+import appConfig from '../configs/app.config.json';
+import loggers from '../utils/loggers';
 
-const Sentry = require('@sentry/node');
-
-// Sentry.init({
-//   dsn: 'https://0df3e9b0df6840d6b691d1608dcccb1d@sentry.io/1535715'
-// });
-if (sentryConfig.enable) {
-  Sentry.init({
-    dsn: sentryConfig.dsn
-  });
-}
+const logger = loggers.create(appConfig.logger.service);
 
 export default (err, _, res, next) => {
   if (!err) {
     return next();
   }
 
-  if (sentryConfig.enable) {
-    Sentry.captureException(err);
+  if (appConfig.logger.enable) {
+    logger.log(err.message);
   }
 
   return res.status(400).json({
