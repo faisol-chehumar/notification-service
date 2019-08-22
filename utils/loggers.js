@@ -29,9 +29,14 @@ const create = client => {
     return 'No logger init.';
   }
 
+  const loggers = {
+    log4js: log4jsLog,
+    sentry: sentryLog
+  };
+
   return {
     log: error => {
-      return client === 'log4js' ? log4jsLog(error) : sentryLog(error);
+      return loggers[client](error);
     }
   };
 };
