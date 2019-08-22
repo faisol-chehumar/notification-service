@@ -2,9 +2,10 @@ import * as line from '@line/bot-sdk';
 import Joi from '@hapi/joi';
 import { Router } from 'express';
 
-import { bot } from '../../../services';
 import config from '../../../configs/line.config.json';
+import service from '../../../services';
 
+const { bot } = service;
 const notificationLineRouter = Router();
 
 notificationLineRouter.post('/', async (req, res, next) => {
@@ -35,7 +36,7 @@ notificationLineRouter.post('/', async (req, res, next) => {
     });
 
     return res.status(200).json({
-      status: 'sucess',
+      status: 'success',
       result
     });
   } catch (e) {

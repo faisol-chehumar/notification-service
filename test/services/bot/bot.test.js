@@ -59,6 +59,24 @@ describe('multicast() is commands bot for send message to multiple specific user
 
   it('should throw Error if userIds is an empty array. because multicast must have userIds atleast 1 Id.', () => {
     const params = {
+      userIds: [],
+      messages: [
+        {
+          type: 'text',
+          text: 'Hello World'
+        }
+      ]
+    };
+
+    const errorMessage = 'userIds must not be empty array';
+
+    expect(() => {
+      bot.multicast(mockClient, params);
+    }).toThrow(errorMessage);
+  });
+
+  it('should throw Error if messages is an empty array. because multicast must have messages atleast 1 object.', () => {
+    const params = {
       userIds: ['1', '2', '3'],
       messages: []
     };
