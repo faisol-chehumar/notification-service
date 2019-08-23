@@ -8,11 +8,8 @@ Send message to line group.
 
 ```json params
 {
-  // ชื่อ Bot Channel จาก Line Provinder
   "botChannel": "TS_OA",
-  // UserIds ของ line
   "userIds": ["1", "3", "5"],
-  // ข้อความที่ต้องการส่งไป
   "messages": "[
     {
       "type": "text",

@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Routes;
-app.use('/api', apiRoutes);
+app.use(apiRoutes);
 
 // All error event will process here.
 app.use(errorHandler);

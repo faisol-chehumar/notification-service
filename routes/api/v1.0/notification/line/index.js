@@ -2,13 +2,13 @@ import * as line from '@line/bot-sdk';
 import Joi from '@hapi/joi';
 import { Router } from 'express';
 
-import config from '../../../configs/line.config.json';
-import service from '../../../services';
+import config from '../../../../../configs/line.config.json';
+import service from '../../../../../services';
 
 const { bot } = service;
-const notificationLineRouter = Router();
+const lineRouter = Router();
 
-notificationLineRouter.post('/', async (req, res, next) => {
+lineRouter.post('/', async (req, res, next) => {
   try {
     const schema = Joi.object().keys({
       channel: Joi.string().required(),
@@ -44,4 +44,4 @@ notificationLineRouter.post('/', async (req, res, next) => {
   }
 });
 
-export default notificationLineRouter;
+export default lineRouter;

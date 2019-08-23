@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import notificationLine from './notification/line';
+import v1Router from './v1.0';
 
 const apiRouter = Router();
 
-apiRouter.use('/NotificationLine', notificationLine);
+apiRouter.use('/v1.0', v1Router);
 
 export default apiRouter;
