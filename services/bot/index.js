@@ -1,6 +1,7 @@
 const create = ({ service, channel, config }) => {
   return new service.Client({
-    channelAccessToken: config[channel].channelAccessToken
+    channelAccessToken: config[channel].channelAccessToken,
+    channelSecret: config[channel].channelSecret
   });
 };
 
